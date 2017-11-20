@@ -1164,7 +1164,7 @@ static DurationInfo MeasureDurations(const ins& in)
 
     // Keyoff the note
     for(unsigned n=0; n<n_notes; ++n)
-        opl.WriteReg(0xB0+n, (x[n]>>8) & 0xDF);
+        opl.WriteReg(0xB0+n*3, (x[n]>>8) & 0xDF);
 
     // Now, for up to 60 seconds, measure mean amplitude.
     std::vector<double> amplitudecurve_off;
@@ -1482,9 +1482,9 @@ int main()
         "} adl[] =\n"*/
         "const adldata adl[%u] =\n"
         "{ //    ,---------+-------- Wave select settings\n"
-        "  //    | ,-------÷-+------ Sustain/release rates\n"
-        "  //    | | ,-----÷-÷-+---- Attack/decay rates\n"
-        "  //    | | | ,---÷-÷-÷-+-- AM/VIB/EG/KSR/Multiple bits\n"
+        "  //    | ,-------Ã·-+------ Sustain/release rates\n"
+        "  //    | | ,-----Ã·-Ã·-+---- Attack/decay rates\n"
+        "  //    | | | ,---Ã·-Ã·-Ã·-+-- AM/VIB/EG/KSR/Multiple bits\n"
         "  //    | | | |   | | | |\n"
         "  //    | | | |   | | | |     ,----+-- KSL/attenuation settings\n"
         "  //    | | | |   | | | |     |    |    ,----- Feedback/connection bits\n"
