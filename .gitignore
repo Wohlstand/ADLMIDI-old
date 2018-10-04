@@ -1,7 +1,41 @@
+# Compiled Object files
+*.slo
+*.lo
 *.o
-adlmidi
-dumpbank
-dumpmiles
-gen_adldata
-.depend
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+bin/*
+obj/*
+
+# Qt-Creator IDE
+build-*
+*.user
+
+# Cmake caches
+build/*
+
+# DoxyGen's output:
+docs
 
