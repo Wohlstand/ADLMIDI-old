@@ -39,3 +39,10 @@ build/*
 # DoxyGen's output:
 docs
 
+# binaries
+*.so
+*.a
+*.dll
+*.dylib
+adlmidi
+

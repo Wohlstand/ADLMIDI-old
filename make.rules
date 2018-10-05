@@ -1,0 +1,398 @@
+VERSION=2.0
+ARCHNAME=adlmidi-$(VERSION)
+ARCHDIR=archives/
+NOGZIPARCHIVES=1
+
+ARCHFILES=\
+    .gitignore \
+    depfun.mak \
+    AUTHORS \
+    banks.ini \
+    docmaker.php \
+    progdesc.php \
+    LICENSE \
+    Makefile.w32 \
+    Makefile \
+    midiplay.bas \
+    Makefile.cygwin \
+    makediff.php \
+    README.md \
+    examples \
+    examples/sd2_audio \
+    examples/sd2_audio/sdl2_sample.c \
+    examples/python-alsa \
+    examples/python-alsa/ReadMe.txt \
+    examples/python-alsa/playmidi.py \
+    make.rules \
+    \
+    include/adlmidi.h \
+    include/adlmidi.hpp \
+    src/adlmidi_midiplay.cpp \
+    src/adlmidi_cvt.hpp \
+    src/file_reader.hpp \
+    src/adlmidi_opl3.cpp \
+    src/adldata.hh \
+    src/cvt_mus2mid.hpp \
+    src/midi_sequencer_impl.hpp \
+    src/adlmidi_bankmap.tcc \
+    src/midi_sequencer.h \
+    src/adlmidi_ptr.hpp \
+    src/midi_sequencer.hpp \
+    src/adldata.cpp \
+    src/adlmidi_private.cpp \
+    src/adlmidi_bankmap.h \
+    src/fraction.hpp \
+    src/adlmidi_sequencer.cpp \
+    src/wopl/wopl_file.c \
+    src/wopl/wopl_file.h \
+    src/adlmidi_private.hpp \
+    src/cvt_xmi2mid.hpp \
+    src/adlmidi.cpp \
+    src/adlmidi_load.cpp \
+    src/chips/opl_chip_base.h \
+    src/chips/nuked/nukedopl3_174.c \
+    src/chips/nuked/nukedopl3_174.h \
+    src/chips/nuked/nukedopl3.c \
+    src/chips/nuked/nukedopl3.h \
+    src/chips/opl_chip_base.tcc \
+    src/chips/dosbox/dbopl.cpp \
+    src/chips/dosbox/dbopl.h \
+    src/chips/nuked_opl3_v174.h \
+    src/chips/nuked_opl3_v174.cpp \
+    src/chips/dosbox_opl3.h \
+    src/chips/nuked_opl3.h \
+    src/chips/dosbox_opl3.cpp \
+    src/chips/nuked_opl3.cpp \
+    \
+    CMakeLists.txt \
+    cmake/FindLIBVLC.cmake \
+    cmake/openwattcom-dos \
+    cmake/openwattcom-dos/ow-cmake.sh \
+    cmake/openwattcom-dos/custom-h \
+    cmake/openwattcom-dos/custom-h/myset.h \
+    cmake/openwattcom-dos/custom-h/mymap.h \
+    cmake/openwattcom-dos/toolchain-ow.cmake \
+    cmake/djgpp/toolchain-djgpp.cmake \
+    cmake/djgpp/djgpp-cmake.sh \
+    cmake/openwattcom/Linux-OpenWatcom-CXX.cmake \
+    cmake/openwattcom/ow-cmake.sh \
+    cmake/openwattcom/Linux-OpenWatcom-C.cmake \
+    cmake/openwattcom/toolchain-ow.cmake \
+    cmake/openwattcom/Linux-OpenWatcom.cmake \
+    utils/test/adldatatest.cc \
+    utils/test/test.cc \
+    utils/gen_adldata/gen_adldata.cc \
+    utils/gen_adldata/measurer.cpp \
+    utils/gen_adldata/progs_cache.h \
+    utils/gen_adldata/scrapped.txt \
+    utils/gen_adldata/midi_inst_list.h \
+    utils/gen_adldata/gen_adldata.pro.user \
+    utils/gen_adldata/file_formats/load_bnk2.h \
+    utils/gen_adldata/file_formats/load_tmb.h \
+    utils/gen_adldata/file_formats/load_ail.h \
+    utils/gen_adldata/file_formats/common.h \
+    utils/gen_adldata/file_formats/load_wopl.h \
+    utils/gen_adldata/file_formats/load_op2.h \
+    utils/gen_adldata/file_formats/load_bnk.h \
+    utils/gen_adldata/file_formats/load_bisqwit.h \
+    utils/gen_adldata/file_formats/load_jv.h \
+    utils/gen_adldata/file_formats/load_ibk.h \
+    utils/gen_adldata/file_formats/load_ea.h \
+    utils/gen_adldata/gen_adldata.pro \
+    utils/gen_adldata/ini/IniProcessor.pri \
+    utils/gen_adldata/ini/ini_processing.h \
+    utils/gen_adldata/ini/ini_processing.cpp \
+    utils/gen_adldata/ini/ini_processing_variant.h \
+    utils/gen_adldata/progs_cache.cpp \
+    utils/gen_adldata/measurer.h \
+    utils/adlmidi-2/adlmidi-2.pro.user \
+    utils/adlmidi-2/6x9.hpp \
+    utils/adlmidi-2/puzzlegame.hpp \
+    utils/adlmidi-2/midiplay.cc \
+    utils/adlmidi-2/9x15.hpp \
+    utils/adlmidi-2/puzzlegame.cc \
+    utils/adlmidi-2/input.hpp \
+    utils/adlmidi-2/input.cc \
+    utils/adlmidi-2/8x16.hpp \
+    utils/adlmidi-2/adlmidi-2.pro \
+    utils/xmi2mid/xmi2mid.cpp \
+    utils/vlc_codec/.gitignore \
+    utils/vlc_codec/Makefile.am \
+    utils/vlc_codec/configure.ac \
+    utils/vlc_codec/autogen.sh \
+    utils/vlc_codec/libadlmidi.c \
+    utils/midiplay/Makefile.win32 \
+    utils/midiplay/wave_writer.c \
+    utils/midiplay/Makefile \
+    utils/midiplay/wave_writer.h \
+    utils/midiplay/adlmidiplay.cpp \
+    utils/dumpbank/dumpbank.cpp \
+    utils/dumpmiles/dumpmiles.cpp \
+    test/bankmap/CMakeLists.txt \
+    test/bankmap/bank_map.cpp \
+    test/common/catch.hpp \
+    test/common/catch_main.cpp \
+    test/wopl-file/wopl_file.cpp \
+    test/wopl-file/CMakeLists.txt \
+    test/conversion/conversion.cpp \
+    test/conversion/CMakeLists.txt \
+    test/CMakeLists.txt \
+    \
+    fm_banks/adldata-cache.dat \
+    fm_banks/bnk_files \
+    fm_banks/bnk_files/d2drum.bnk \
+    fm_banks/bnk_files/d2melo.bnk \
+    fm_banks/bnk_files/drum.bnk \
+    fm_banks/bnk_files/file131.bnk \
+    fm_banks/bnk_files/file132.bnk \
+    fm_banks/bnk_files/file133.bnk \
+    fm_banks/bnk_files/file134.bnk \
+    fm_banks/bnk_files/file142.bnk \
+    fm_banks/bnk_files/file143.bnk \
+    fm_banks/bnk_files/file144.bnk \
+    fm_banks/bnk_files/file144-old.bnk \
+    fm_banks/bnk_files/file145.bnk \
+    fm_banks/bnk_files/file159.bnk \
+    fm_banks/bnk_files/file167.bnk \
+    fm_banks/bnk_files/file168.bnk \
+    fm_banks/bnk_files/grassman1.bnk \
+    fm_banks/bnk_files/grassman2.bnk \
+    fm_banks/bnk_files/hamdrum.bnk \
+    fm_banks/bnk_files/hammelo.bnk \
+    fm_banks/bnk_files/intdrum.bnk \
+    fm_banks/bnk_files/intmelo.bnk \
+    fm_banks/bnk_files/melodic.bnk \
+    fm_banks/bnk_files/normdrum.bnk \
+    fm_banks/bnk_files/normmelo.bnk \
+    fm_banks/bnk_files/rickdrum.bnk \
+    fm_banks/bnk_files/rickmelo.bnk \
+    fm_banks/bnk_files/ssdrum.bnk \
+    fm_banks/bnk_files/ssmelo.bnk \
+    fm_banks/bnk_files/themepark.tmb \
+    fm_banks/doom2 \
+    fm_banks/doom2/default.op2 \
+    fm_banks/doom2/DMXOPL-by-sneakernets.op2 \
+    fm_banks/doom2/genmidi.htc \
+    fm_banks/doom2/genmidi.op2 \
+    fm_banks/ibk_files \
+    fm_banks/ibk_files/game.ibk \
+    fm_banks/ibk_files/ibk \
+    fm_banks/ibk_files/ibk/BASS.IBK \
+    fm_banks/ibk_files/ibk/BRASS.IBK \
+    fm_banks/ibk_files/ibk/CHRMPERC.IBK \
+    fm_banks/ibk_files/ibk/DRUM.IBK \
+    fm_banks/ibk_files/ibk/ENSEMBLE.IBK \
+    fm_banks/ibk_files/ibk/FMTIMBRE.IBK \
+    fm_banks/ibk_files/ibk/GENMIDI.IBK \
+    fm_banks/ibk_files/ibk/GM.IBK \
+    fm_banks/ibk_files/ibk/GMOPL2.IBK \
+    fm_banks/ibk_files/ibk/GMOPL.IBK \
+    fm_banks/ibk_files/ibk/GUITAR.IBK \
+    fm_banks/ibk_files/ibk/HARP.IBK \
+    fm_banks/ibk_files/ibk/IBK.H \
+    fm_banks/ibk_files/ibk/MAUIFM.IBK \
+    fm_banks/ibk_files/ibk/MAUIPERC.IBK \
+    fm_banks/ibk_files/ibk/MELODY.IBK \
+    fm_banks/ibk_files/ibk/MT32.IBK \
+    fm_banks/ibk_files/ibk/ORGAN.IBK \
+    fm_banks/ibk_files/ibk/PERCUSSV.IBK \
+    fm_banks/ibk_files/ibk/PIANO.IBK \
+    fm_banks/ibk_files/ibk/PIPE.IBK \
+    fm_banks/ibk_files/ibk/README.TXT \
+    fm_banks/ibk_files/ibk/REED.IBK \
+    fm_banks/ibk_files/ibk/SYNLEAD2.IBK \
+    fm_banks/ibk_files/ibk/SYNLEAD3.IBK \
+    fm_banks/ibk_files/ibk/SYNLEAD.IBK \
+    fm_banks/ibk_files/ibk/SYNPAD.IBK \
+    fm_banks/ibk_files/ibk/TIMBRE.IBK \
+    fm_banks/ibk_files/ibk/VIOLIN.IBK \
+    fm_banks/ibk_files/Inst \
+    fm_banks/ibk_files/Inst/0.SBI \
+    fm_banks/ibk_files/Inst/1gmopl.ibk \
+    fm_banks/ibk_files/Inst/CHRMPERC.IBK \
+    fm_banks/ibk_files/Inst/DOOM-1.IBK \
+    fm_banks/ibk_files/Inst/DOOM-2.IBK \
+    fm_banks/ibk_files/Inst/DOOM2.IBK \
+    fm_banks/ibk_files/Inst/DOOM.IBK \
+    fm_banks/ibk_files/Inst/DRUM2.IBK \
+    fm_banks/ibk_files/Inst/DRUM3.IBK \
+    fm_banks/ibk_files/Inst/DRUM4.IBK \
+    fm_banks/ibk_files/Inst/DRUM.IBK \
+    fm_banks/ibk_files/Inst/DRUMOPL.IBK \
+    fm_banks/ibk_files/Inst/DRUMS.IBK \
+    fm_banks/ibk_files/Inst/GENMIDI.IBK \
+    fm_banks/ibk_files/Inst/GM.IBK \
+    fm_banks/ibk_files/Inst/GMOPL1.IBK \
+    fm_banks/ibk_files/Inst/$GMOPL.IBK \
+    fm_banks/ibk_files/Inst/gmopl.ibk \
+    fm_banks/ibk_files/Inst/MAUIFM.IBK \
+    fm_banks/ibk_files/Inst/MAUIPERC.IBK \
+    fm_banks/ibk_files/Inst/MT32.IBK \
+    fm_banks/ibk_files/Inst/NVD.IBK \
+    fm_banks/ibk_files/Inst/PERCUSSV.IBK \
+    fm_banks/ibk_files/Inst/TIMBRE.IBK \
+    fm_banks/ibk_files/JOconnel.IBK \
+    fm_banks/ibk_files/mt_fm.ibk \
+    fm_banks/ibk_files/my-gmopldrums.IBK \
+    fm_banks/ibk_files/my-gmopl.ibk \
+    fm_banks/ibk_files/nitemare_3d.ibk \
+    fm_banks/ibk_files/soccer-genmidi.ibk \
+    fm_banks/ibk_files/soccer-percs.ibk \
+    fm_banks/misc_files \
+    fm_banks/misc_files/cartooners-adlib-decrypted.dat \
+    fm_banks/op3_files \
+    fm_banks/op3_files/2x2.op3 \
+    fm_banks/op3_files/2x2.opl \
+    fm_banks/op3_files/2x2patch \
+    fm_banks/op3_files/2x2patch/2x2.cpp \
+    fm_banks/op3_files/2x2patch/2x2.op3 \
+    fm_banks/op3_files/2x2patch/bytecmp \
+    fm_banks/op3_files/2x2patch/bytecmp.c \
+    fm_banks/op3_files/2x2patch/fat2.op3 \
+    fm_banks/op3_files/2x2patch/fat4.op3 \
+    fm_banks/op3_files/2x2patch/res.txt \
+    fm_banks/op3_files/bisqwit.adlraw \
+    fm_banks/op3_files/fat2_modded.op3 \
+    fm_banks/op3_files/fat2.op3 \
+    fm_banks/op3_files/fat4-fixed.opl \
+    fm_banks/op3_files/fat4_old.op3 \
+    fm_banks/op3_files/fat4.op3 \
+    fm_banks/op3_files/fat4_probe.op3 \
+    fm_banks/op3_files/gmoconel.tmb \
+    fm_banks/op3_files/gmopl_wohl_mod.tmb \
+    fm_banks/op3_files/jv_2op.op3 \
+    fm_banks/op3_files/wallace.op3 \
+    fm_banks/op3_files/wallace.tmb \
+    fm_banks/opl_files \
+    fm_banks/opl_files/file12.opl \
+    fm_banks/opl_files/file13.opl \
+    fm_banks/opl_files/file15.opl \
+    fm_banks/opl_files/file16.opl \
+    fm_banks/opl_files/file17.opl \
+    fm_banks/opl_files/file19.opl \
+    fm_banks/opl_files/file20.opl \
+    fm_banks/opl_files/file21.opl \
+    fm_banks/opl_files/file23.opl \
+    fm_banks/opl_files/file24.opl \
+    fm_banks/opl_files/file25.opl \
+    fm_banks/opl_files/file26.opl \
+    fm_banks/opl_files/file27.opl \
+    fm_banks/opl_files/file29.opl \
+    fm_banks/opl_files/file30.opl \
+    fm_banks/opl_files/file31.opl \
+    fm_banks/opl_files/file32.opl \
+    fm_banks/opl_files/file34.opl \
+    fm_banks/opl_files/file35.opl \
+    fm_banks/opl_files/file36.opl \
+    fm_banks/opl_files/file37.opl \
+    fm_banks/opl_files/file41.opl \
+    fm_banks/opl_files/file42.opl \
+    fm_banks/opl_files/file47.opl \
+    fm_banks/opl_files/file48.opl \
+    fm_banks/opl_files/file49.opl \
+    fm_banks/opl_files/file50.opl \
+    fm_banks/opl_files/file53-2.opl \
+    fm_banks/opl_files/file53_dupe.opl \
+    fm_banks/opl_files/file53.opl \
+    fm_banks/opl_files/file54.opl \
+    fm_banks/opl_files/nemesis.opl \
+    fm_banks/opl_files/nhlpa.opl \
+    fm_banks/opl_files/sample.ad \
+    fm_banks/opl_files/sample.opl \
+    fm_banks/opl_files/sc3.opl \
+    fm_banks/opl_files/simfarm.ad \
+    fm_banks/opl_files/simfarm.opl \
+    fm_banks/opl_files/warcraft.ad \
+    fm_banks/raptor \
+    fm_banks/raptor/genmidi.op2 \
+    fm_banks/tmb_files \
+    fm_banks/tmb_files/bloodtmb.tmb \
+    fm_banks/tmb_files/buildtmb.c \
+    fm_banks/tmb_files/d3dtimbr.tmb \
+    fm_banks/tmb_files/default.tmb \
+    fm_banks/tmb_files/lee.tmb \
+    fm_banks/tmb_files/nam.tmb \
+    fm_banks/tmb_files/swtimbr.tmb \
+    fm_banks/wopl_files \
+    fm_banks/wopl_files/Apogee-IMF-90.wopl \
+    fm_banks/wopl_files/DMXOPL3-by-sneakernets-GS.wopl \
+    fm_banks/wopl_files/GM-By-J.A.Nguyen-and-Wohlstand.wopl \
+    fm_banks/wopl_files/HardOrgan.opli \
+    fm_banks/wopl_files/lostvik.wopl \
+    fm_banks/wopl_files/Wohlstand's-modded-FatMan.wopl \
+    fm_banks/ymf262.pdf
+
+INSTALLPROGS=adlmidi
+
+all: adlmidi
+
+
+
+adlmidi: tmp/midiplay.o tmp/puzzlegame.o tmp/input.o libADLMIDI.so
+	$(CXXLINK)  $^  $(DEBUG) $(SDL) -o $@ $(LDLIBS) -L. -lADLMIDI
+
+tmp/midiplay.o: utils/adlmidi-2/midiplay.cc tmp
+	$(CXX) $(CPPFLAGS) $<  $(DEBUG)  -c -o $@
+
+tmp/puzzlegame.o: utils/adlmidi-2/puzzlegame.cc tmp
+	$(CXX) $(CPPFLAGS) $<  $(DEBUG)  -c -o $@
+
+tmp/input.o: utils/adlmidi-2/input.cc tmp
+	$(CXX) $(CPPFLAGS) $<  $(DEBUG)  -c -o $@
+
+
+
+libADLMIDI.so: tmp/adldata.o tmp/adlmidi.o \
+    tmp/adlmidi_load.o tmp/adlmidi_midiplay.o tmp/adlmidi_midiplay.o \
+    tmp/adlmidi_opl3.o tmp/adlmidi_private.o tmp/adlmidi_sequencer.o \
+    tmp/dosbox_opl3.o tmp/nuked_opl3.o tmp/nuked_opl3_v174.o \
+    tmp/dbopl.o tmp/nukedopl3.o tmp/nukedopl3_174.o tmp/wopl_file.o
+	$(CXXLINKLIB) $^  $(DEBUG) -o $@ $(LDLIBS)
+
+tmp/adldata.o: src/adldata.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/adlmidi.o: src/adlmidi.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/adlmidi_load.o: src/adlmidi_load.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/adlmidi_midiplay.o: src/adlmidi_midiplay.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/adlmidi_opl3.o: src/adlmidi_opl3.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/adlmidi_private.o: src/adlmidi_private.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/adlmidi_sequencer.o: src/adlmidi_sequencer.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/dosbox_opl3.o: src/chips/dosbox_opl3.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/nuked_opl3.o: src/chips/nuked_opl3.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/nuked_opl3_v174.o: src/chips/nuked_opl3_v174.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/dbopl.o: src/chips/dosbox/dbopl.cpp tmp
+	$(CXX) $(CPPFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/nukedopl3.o: src/chips/nuked/nukedopl3.c tmp
+	$(CXX) $(CFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/nukedopl3_174.o: src/chips/nuked/nukedopl3_174.c tmp
+	$(CXX) $(CFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp/wopl_file.o: src/wopl/wopl_file.c tmp
+	$(CXX) $(CFLAGS_LIB) $<  $(DEBUG)  -c -o $@
+
+tmp:
+	mkdir $@
+
+include depfun.mak
+
